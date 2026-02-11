@@ -1,0 +1,1496 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Base */
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(135deg, #1a0b2e, #0d0630);
+    color: #f5f5f5;
+    line-height: 1.8;
+    min-height: 100vh;
+    transition: background 1.5s ease-in-out;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, rgba(255, 255, 255, 0) 50%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  /* Utilities */
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Pre-Valentine's Tease */
+  #pre-valentine-tease {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .tease-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .tease-card {
+    background: linear-gradient(135deg, 
+      rgba(74, 20, 140, 0.95), 
+      rgba(136, 14, 79, 0.95));
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 3px solid rgba(255, 64, 129, 0.3);
+    box-shadow: 
+      0 20px 60px rgba(136, 14, 79, 0.5),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10001;
+    animation: cardAppear 1s ease-out;
+  }
+  
+  @keyframes cardAppear {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  .tease-heart {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s ease infinite;
+  }
+  
+  .tease-title {
+    text-align: center;
+    color: #ffebee;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    font-weight: normal;
+    line-height: 1.4;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .tease-message {
+    color: #ffebee;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .tease-message p {
+    margin-bottom: 15px;
+  }
+  
+  .tease-hint {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+    border-left: 4px solid #ff4081;
+  }
+  
+  .tease-hint ul {
+    margin: 15px 0;
+    padding-left: 20px;
+  }
+  
+  .tease-hint li {
+    margin-bottom: 10px;
+    color: #ff79b0;
+  }
+  
+  .tease-romance {
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(255, 64, 129, 0.1);
+    border-radius: 12px;
+    font-style: italic;
+    text-align: center;
+  }
+  
+  .tease-closing {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .tease-signature {
+    font-style: italic;
+    color: #ff79b0;
+    margin-top: 15px;
+    font-size: 1.1rem;
+  }
+  
+  .tease-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px 0;
+  }
+  
+  .tease-btn {
+    padding: 18px 30px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .tease-btn.primary {
+    background: linear-gradient(45deg, #ff4081, #ff79b0);
+    color: white;
+  }
+  
+  .tease-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .tease-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 64, 129, 0.4);
+  }
+  
+  .tease-note {
+    text-align: center;
+    color: rgba(255, 235, 238, 0.6);
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Tease Closing Overlay */
+  .tease-closing-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10002;
+    padding: 20px;
+  }
+  
+  .tease-final-message {
+    background: linear-gradient(135deg, 
+      rgba(136, 14, 79, 0.95), 
+      rgba(74, 20, 140, 0.95));
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    border: 3px solid rgba(255, 64, 129, 0.3);
+    animation: cardAppear 1s ease-out;
+  }
+  
+  .final-heart {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s ease infinite;
+  }
+  
+  .tease-final-message h3 {
+    color: #ffebee;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  
+  .tease-final-message p {
+    color: #ffebee;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .final-note {
+    font-style: italic;
+    color: #ff79b0;
+    margin: 25px 0;
+  }
+  
+  .final-btn {
+    padding: 15px 40px;
+    background: linear-gradient(45deg, #ff4081, #ff79b0);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .final-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 64, 129, 0.4);
+  }
+  
+  /* Valentine's Hint Box */
+  .valentine-hint-box {
+    background: linear-gradient(135deg, 
+      rgba(136, 14, 79, 0.1), 
+      rgba(74, 20, 140, 0.1));
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+    border: 2px dashed rgba(255, 64, 129, 0.3);
+    animation: pulseHint 3s ease infinite;
+  }
+  
+  @keyframes pulseHint {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+  
+  .hint-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .hint-icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+  }
+  
+  .hint-text {
+    flex: 1;
+  }
+  
+  .hint-text strong {
+    color: #ff79b0;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+  }
+  
+  .hint-text small {
+    color: #b0b0b0;
+    line-height: 1.5;
+  }
+  
+  /* Valentine's Surprise Popup */
+  #valentine-surprise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .valentine-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .valentine-card {
+    background: linear-gradient(135deg, 
+      rgba(136, 14, 79, 0.97), 
+      rgba(74, 20, 140, 0.97));
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 850px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 3px solid rgba(255, 64, 129, 0.4);
+    box-shadow: 
+      0 25px 70px rgba(136, 14, 79, 0.6),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 10001;
+    animation: cardAppear 1s ease-out;
+  }
+  
+  .valentine-heart {
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 25px;
+    animation: heartbeat 1.5s ease infinite;
+    filter: drop-shadow(0 0 15px rgba(255, 64, 129, 0.5));
+  }
+  
+  .valentine-title {
+    text-align: center;
+    color: #ffebee;
+    font-size: 2.3rem;
+    margin-bottom: 30px;
+    font-weight: normal;
+    line-height: 1.4;
+    text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .valentine-message {
+    color: #ffebee;
+    line-height: 1.8;
+    font-size: 1.15rem;
+  }
+  
+  .valentine-message p {
+    margin-bottom: 20px;
+  }
+  
+  .special-moments {
+    margin: 30px 0;
+  }
+  
+  .moment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    border-left: 5px solid #ff4081;
+    transition: transform 0.3s ease;
+  }
+  
+  .moment:hover {
+    transform: translateX(8px);
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .moment-icon {
+    font-size: 2.2rem;
+    margin-right: 25px;
+    flex-shrink: 0;
+  }
+  
+  .moment p {
+    margin: 0;
+    flex: 1;
+  }
+  
+  .moment strong {
+    color: #ff79b0;
+    font-size: 1.25rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .valentine-revelation {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 64, 129, 0.1);
+    border-radius: 18px;
+    border: 2px solid rgba(255, 121, 176, 0.3);
+  }
+  
+  .revelation-box {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    margin-top: 20px;
+  }
+  
+  .revelation-box p {
+    margin-bottom: 20px;
+  }
+  
+  .revelation-box .subtle-hint {
+    font-style: italic;
+    color: #ff79b0;
+    font-weight: 500;
+    padding: 15px;
+    background: rgba(255, 121, 176, 0.1);
+    border-radius: 8px;
+    border-left: 3px solid #ff4081;
+  }
+  
+  .motherhood-tribute {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 18px;
+    text-align: center;
+    border: 2px dashed rgba(255, 64, 129, 0.2);
+  }
+  
+  .motherhood-tribute h3 {
+    color: #ff4081;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  
+  .motherhood-tribute p {
+    margin-bottom: 15px;
+  }
+  
+  .motherhood-tribute strong {
+    color: #ff79b0;
+  }
+  
+  .love-confession {
+    margin: 40px 0;
+  }
+  
+  .confession-box {
+    background: rgba(255, 64, 129, 0.15);
+    border-radius: 18px;
+    padding: 35px;
+    text-align: center;
+    border: 3px solid rgba(255, 121, 176, 0.4);
+  }
+  
+  .main-confession {
+    font-size: 1.4rem;
+    color: #ff4081;
+    font-weight: bold;
+    margin: 20px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .future-hope {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 18px;
+  }
+  
+  .future-hope p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #ff79b0;
+  }
+  
+  .hope-list {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+  }
+  
+  .hope-item {
+    padding: 18px;
+    background: rgba(255, 64, 129, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #ff4081;
+    transition: all 0.3s ease;
+  }
+  
+  .hope-item:hover {
+    background: rgba(255, 64, 129, 0.15);
+    transform: translateX(5px);
+  }
+  
+  .valentine-gift {
+    margin: 40px 0;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    text-align: center;
+    border: 2px solid rgba(254, 202, 87, 0.3);
+  }
+  
+  .valentine-gift h3 {
+    color: #feca57;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+  }
+  
+  .gift-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: left;
+  }
+  
+  .gift-box p {
+    margin-bottom: 15px;
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .gift-box p:before {
+    content: '•';
+    color: #feca57;
+    position: absolute;
+    left: 0;
+  }
+  
+  .gift-note {
+    font-style: italic;
+    color: #feca57;
+    margin-top: 20px;
+  }
+  
+  .valentine-closing {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .signature {
+    font-style: italic;
+    color: #ff79b0;
+    margin: 20px 0;
+    font-size: 1.3rem;
+  }
+  
+  .closing-hearts {
+    font-size: 2.5rem;
+    margin-top: 20px;
+    animation: pulseHearts 2s ease infinite;
+  }
+  
+  @keyframes pulseHearts {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+  }
+  
+  .valentine-close-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 20px 45px;
+    background: linear-gradient(45deg, #ff4081, #ff79b0);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 350px;
+    box-shadow: 0 10px 30px rgba(255, 64, 129, 0.4);
+  }
+  
+  .valentine-close-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(255, 64, 129, 0.6);
+  }
+  
+  .valentine-note {
+    text-align: center;
+    color: rgba(255, 235, 238, 0.6);
+    font-style: italic;
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+  
+  /* Container */
+  .container {
+    max-width: 760px;
+    margin: auto;
+    padding: 56px 18px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .container::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.03) 0%, 
+      rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  /* Headings */
+  h1 {
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    font-size: 1.9rem;
+    text-align: center;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  h2 {
+    font-weight: normal;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  /* Progress Tracker */
+  #progress-tracker {
+    margin: 40px 0 20px 0;
+    text-align: center;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff6b6b, #feca57);
+    border-radius: 2px;
+    transition: width 0.8s ease;
+  }
+  
+  .song-counter {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+  
+  /* Song Tracker Messages */
+  .song-tracker {
+    margin: 10px 0 15px 0;
+    min-height: 24px;
+    position: relative;
+  }
+  
+  .tracker-message {
+    font-style: italic;
+    color: #feca57;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  
+  .tracker-message.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .tracker-message.completion {
+    color: #ff6b6b;
+    font-weight: 500;
+  }
+  
+  /* Message */
+  .message {
+    font-size: 1.05rem;
+    margin-bottom: 72px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .message p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #d0d0d0;
+  }
+  
+  .message p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Divider */
+  .divider {
+    text-align: center;
+    margin: 72px 0;
+    opacity: 0.4;
+    font-size: 1.5rem;
+    letter-spacing: 8px;
+    color: #ff6b6b;
+  }
+  
+  .divider.text {
+    font-style: italic;
+    opacity: 0.9;
+    padding: 1.5rem;
+    background: rgba(254, 202, 87, 0.05);
+    border-radius: 8px;
+    border-left: 3px solid #feca57;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: #feca57;
+  }
+  
+  /* Songs */
+  .song {
+    margin-bottom: 56px;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .song:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Playing indicator */
+  .playing-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #FF6B6B;
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .song.playing .playing-indicator {
+    opacity: 1;
+    animation: pulse 1.5s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0.8);
+      opacity: 0.7;
+    }
+  }
+  
+  .caption {
+    font-style: italic;
+    opacity: 0.85;
+    margin-bottom: 16px;
+    color: #b0b0b0;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  /* Audio */
+  audio {
+    width: 100%;
+    height: 42px;
+    margin-top: 1rem;
+    filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+  }
+  
+  audio::-webkit-media-controls-panel {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+  }
+  
+  /* Photo Styling */
+  .photo-container {
+    margin: 64px auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    max-width: 320px;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  .photo-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .photo {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    display: block;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .photo:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Final Message */
+  #final-message {
+    margin-top: 72px;
+  }
+  
+  .personal-message {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 32px 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-style: italic;
+    line-height: 1.8;
+  }
+  
+  .personal-message p {
+    margin-bottom: 20px;
+    color: #d0d0d0;
+    font-size: 1.1rem;
+  }
+  
+  .personal-message p:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* WhatsApp Response Feature */
+  #whatsapp-response {
+    margin-top: 80px;
+  }
+  
+  .response-container {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+  }
+  
+  .response-container h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #feca57;
+    font-weight: normal;
+  }
+  
+  .response-subtitle {
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .message-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+  }
+  
+  #whatsapp-message {
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #f5f5f5;
+    font-family: Georgia, serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    resize: vertical;
+    transition: all 0.3s ease;
+  }
+  
+  #whatsapp-message:focus {
+    outline: none;
+    border-color: #feca57;
+    box-shadow: 0 0 0 3px rgba(254, 202, 87, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .privacy-note {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(254, 202, 87, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid #feca57;
+  }
+  
+  .privacy-note small {
+    color: #b0b0b0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .response-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .response-btn {
+    padding: 15px 35px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+  }
+  
+  .response-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+  }
+  
+  .response-btn.secondary {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .response-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(254, 202, 87, 0.3);
+  }
+  
+  #whatsapp-sent {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgba(254, 202, 87, 0.05);
+    border-radius: 15px;
+    border: 2px dashed rgba(254, 202, 87, 0.3);
+    text-align: center;
+  }
+  
+  .sent-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: heartbeat 1.5s ease infinite;
+  }
+  
+  #whatsapp-sent h4 {
+    color: #feca57;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  #whatsapp-sent p {
+    color: #d0d0d0;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  #whatsapp-sent ol {
+    text-align: left;
+    display: inline-block;
+    margin: 15px 0;
+    color: #b0b0b0;
+  }
+  
+  #whatsapp-sent li {
+    margin-bottom: 8px;
+  }
+  
+  .confirmation-note {
+    font-style: italic;
+    color: #feca57;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(254, 202, 87, 0.2);
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: 96px;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    line-height: 1.6;
+  }
+  
+  /* ===================== */
+  /* Private Access Layer */
+  /* ===================== */
+  #gate {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #1a0b2e, #0d0630);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 1.5s ease-in-out;
+  }
+  
+  .gate-box {
+    max-width: 420px;
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  .gate-box h2 {
+    font-weight: normal;
+    margin-bottom: 18px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.8rem;
+  }
+  
+  .gate-box p {
+    opacity: 0.85;
+    margin-bottom: 28px;
+    color: #b0b0b0;
+  }
+  
+  .gate-box input {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .gate-box input:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+  }
+  
+  .gate-box button {
+    margin-top: 22px;
+    padding: 12px 28px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    border: none;
+    color: white;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+  }
+  
+  .gate-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.3);
+  }
+  
+  .gate-box button:active {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+  
+  #error {
+    margin-top: 14px;
+    font-size: 0.85rem;
+    color: #ff6b6b;
+    display: none;
+  }
+  
+  /* Floating Hearts Animation */
+  @keyframes floatValentineHeart {
+    0% {
+      transform: translateY(100vh) rotate(0deg) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.9;
+    }
+    50% {
+      transform: translateY(50vh) rotate(180deg) scale(1.4);
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(-100px) rotate(360deg) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes heartExplode {
+     0% {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(0deg);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-150px) scale(1.8) rotate(720deg);
+    }
+  }
+  
+  /* ===================== */
+  /* Responsive Design */
+  /* ===================== */
+  @media (min-width: 768px) {
+    .container {
+      padding: 80px 24px;
+    }
+  
+    h1 {
+      font-size: 2.2rem;
+    }
+  
+    .message {
+      font-size: 1.1rem;
+    }
+    
+    .photo-container {
+      max-width: 280px;
+    }
+    
+    .photo {
+      max-width: 200px;
+    }
+    
+    .tracker-message {
+      font-size: 1rem;
+    }
+    
+    .tease-card,
+    .valentine-card {
+      padding: 50px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 40px 16px;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    
+    .message {
+      padding: 1.5rem;
+      margin-bottom: 50px;
+    }
+    
+    .song {
+      padding: 16px;
+      margin-bottom: 40px;
+    }
+    
+    .divider {
+      margin: 50px 0;
+    }
+    
+    .divider.text {
+      padding: 1rem;
+      font-size: 1.1rem;
+    }
+    
+    .personal-message {
+      padding: 1.5rem;
+    }
+    
+    .personal-message p {
+      font-size: 1rem;
+    }
+    
+    #whatsapp-response {
+      margin-top: 60px;
+    }
+    
+    .response-container {
+      padding: 1.5rem;
+    }
+    
+    .response-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .response-btn {
+      width: 100%;
+      max-width: 300px;
+    }
+    
+    .gate-box {
+      width: 90%;
+      padding: 30px 16px;
+    }
+    
+    .tracker-message {
+      font-size: 0.9rem;
+    }
+    
+    .tease-card,
+    .valentine-card {
+      padding: 30px;
+      margin: 10px;
+    }
+    
+    .tease-title,
+    .valentine-title {
+      font-size: 1.6rem;
+    }
+    
+    .moment {
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .moment-icon {
+      margin-right: 0;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    
+    .tease-options {
+      flex-direction: column;
+    }
+    
+    .valentine-close-btn {
+      width: 100%;
+      min-width: auto;
+      padding: 15px 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 32px 12px;
+    }
+    
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 24px;
+    }
+    
+    .message {
+      padding: 1.25rem;
+      margin-bottom: 40px;
+    }
+    
+    h2 {
+      font-size: 1rem;
+    }
+    
+    .song {
+      padding: 14px;
+      margin-bottom: 32px;
+    }
+    
+    .caption {
+      font-size: 0.95rem;
+    }
+    
+    .photo-container {
+      margin: 40px auto;
+      max-width: 260px;
+    }
+    
+    .photo {
+      max-width: 180px;
+    }
+    
+    .divider {
+      margin: 40px 0;
+      font-size: 1.25rem;
+      letter-spacing: 6px;
+    }
+    
+    .divider.text {
+      padding: 0.75rem;
+      margin: 32px 0;
+      font-size: 1rem;
+    }
+    
+    #final-message {
+      margin-top: 50px;
+    }
+    
+    #whatsapp-response {
+      margin-top: 50px;
+    }
+    
+    .message-box {
+      padding: 20px;
+    }
+    
+    #whatsapp-message {
+      padding: 15px;
+      font-size: 1rem;
+    }
+    
+    .response-btn {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+    
+    #whatsapp-sent {
+      padding: 20px;
+    }
+    
+    .tracker-message {
+      font-size: 0.85rem;
+    }
+    
+    footer {
+      margin-top: 60px;
+      padding-top: 1.5rem;
+    }
+    
+    .gate-box {
+      padding: 24px 12px;
+    }
+    
+    .gate-box h2 {
+      font-size: 1.5rem;
+    }
+    
+    .gate-box input {
+      padding: 12px;
+    }
+    
+    .gate-box button {
+      padding: 10px 24px;
+    }
+    
+    .tease-card,
+    .valentine-card {
+      padding: 25px 20px;
+    }
+    
+    .tease-title,
+    .valentine-title {
+      font-size: 1.4rem;
+    }
+    
+    .valentine-heart,
+    .tease-heart,
+    .final-heart {
+      font-size: 3rem;
+    }
+    
+    .main-confession {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* Landscape orientation for mobile */
+  @media (max-height: 500px) and (orientation: landscape) {
+    #gate {
+      padding: 1rem;
+    }
+    
+    .gate-box {
+      max-width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .tease-card,
+    .valentine-card {
+      max-height: 85vh;
+    }
+  }
+  
+  /* Accessibility improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .song:hover,
+    .gate-box button:hover,
+    .photo:hover,
+    .response-btn:hover,
+    .tease-btn:hover,
+    .valentine-close-btn:hover,
+    .final-btn:hover,
+    .moment:hover,
+    .hope-item:hover {
+      transform: none;
+      transition: none;
+    }
+    
+    .playing-indicator,
+    .sent-icon,
+    .valentine-heart,
+    .tease-heart,
+    .final-heart,
+    .closing-hearts {
+      animation: none;
+    }
+    
+    .tracker-message,
+    .progress-fill {
+      transition: none;
+    }
+    
+    .valentine-hint-box {
+      animation: none;
+    }
+  }

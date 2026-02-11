@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sesame P Nyadza</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Private Access Layer -->
+  <div id="gate">
+    <div class="gate-box">
+      <h2>A quiet question</h2>
+      <p>She was born on the 28-11-22.<br>What's her setswana name?</p>
+
+      <input
+        type="text"
+        id="answer"
+        placeholder="Type her name"
+        autocomplete="off"
+      />
+
+      <button onclick="unlock()">Enter</button>
+      <div id="error">Take a moment and try again.</div>
+    </div>
+  </div>
+
+  <!-- Pre-Valentine's Tease -->
+  <div id="pre-valentine-tease" class="hidden">
+    <div class="tease-overlay">
+      <div class="tease-card">
+        <div class="tease-heart">💝</div>
+        
+        <h2 class="tease-title">You made it a bit earlier...</h2>
+        
+        <div class="tease-message">
+          <p>A few hours early...</p>
+          
+          <p>This message was written for <strong>February 14th</strong> - a day dedicated to love in all its forms.</p>
+          
+          <div class="tease-hint">
+            <p>If you open this again on Valentine's Day, you'll find:</p>
+            <ul>
+              <li>💌 A message from my heart about what you mean to me</li>
+              <li>🎁 A gift (just because you deserve it,just for you)</li>
+              <li>🌟 Something special I've been wanting to tell you</li>
+            </ul>
+          </div>
+          
+          <div class="tease-romance">
+            <p>For now, just know this: <em>some connections are worth waiting for.</em></p>
+            <p>And some people... are worth hoping for.</p>
+          </div>
+          
+          <div class="tease-closing">
+            <p>Come back on Valentine's Day. I promise it will be worth the wait.</p>
+            <p class="tease-signature">Patiently yours,<br>Elias</p>
+          </div>
+        </div>
+        
+        <div class="tease-options">
+          <button id="wait-for-valentine" class="tease-btn primary">
+            💝 Wait for Valentine's Day
+          </button>
+          <button id="see-anyway" class="tease-btn secondary">
+            👀 Listen to my playlist to you
+          </button>
+        </div>
+        
+        <div class="tease-note">
+          <small>Either way, thank you for being here. That alone means everything.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Valentine's Surprise Popup -->
+  <div id="valentine-surprise" class="hidden">
+    <div class="valentine-overlay">
+      <div class="valentine-card">
+        <div class="valentine-heart">💝</div>
+        
+        <h2 class="valentine-title">To MmaagweLesedi the Woman Who Holds My Heart</h2>
+        
+        <div class="valentine-message">
+          <p>You waited. Or maybe you didn't. Either way, you're here on Valentine's Day, and that feels like the universe whispering something beautiful.</p>
+          
+          <div class="special-moments">
+            <div class="moment">
+              <span class="moment-icon">✨</span>
+              <p><strong>First, I need you to know how special you are.</strong> Not just as Lesedi's mother (though you're incredible at that). Not just as my past (though those memories are precious). But as <em>you</em>. The woman who carries strength and softness in perfect balance.</p>
+            </div>
+            
+            <div class="moment">
+              <span class="moment-icon">💭</span>
+              <p>I have been doing a lot of thinking about what matters. About second chances. About growth. About how sometimes the right person comes into your life at the wrong time... only to leave at that wrong time again but leaving a permanent question that is WHAT IF?.</p>
+            </div>
+            
+            <div class="moment">
+              <span class="moment-icon">👨‍👩‍👧</span>
+              <p><strong>Seeing you with our daughter</strong> has shown me what true love really is. It's not about grand gestures. It's in the way you brush her hair. The patience in your voice. The light in your eyes when she accomplishes something new. You are teaching her about love every single day, Thank you for that.</p>
+            </div>
+          </div>
+          
+          <div class="valentine-revelation">
+            <p>Here's what my heart has been wanting to say:</p>
+            <div class="revelation-box">
+              <p>I'm not the man I was when we were together. I have grown. I have learned. I have become someone who understands that real love isn't what I thought a few years ago, it's about wanting the absolute best for someone, choosing them.</p>
+              
+              <p><strong>But what if...</strong> What if letting go doesn't have to be forever? What if growth brings people back together as better versions of themselves?</p>
+              
+              <p class="subtle-hint">I have been imagining what it would be like to build something new with you. Not going back to what was, but creating something better. A partnership built on everything we have learned, everything we have become.</p>
+            </div>
+          </div>
+          
+          <div class="motherhood-tribute">
+            <h3>For Lesedi's Mother</h3>
+            <p>Every day, I am grateful it was <em>you</em> who gave me the title I am proudest of: <strong>RraagweLesedi.</strong></p>
+            <p>Every day, I watch you love our daughter, and I think: "That's the woman I chose to create life with. That's the woman I want by my side."</p>
+            <p>Every day, I'm reminded that the greatest gift our love ever gave us is sleeping peacefully because of you.</p>
+          </div>
+          
+          <div class="love-confession">
+            <div class="confession-box">
+              <p>So on this Valentine's Day, I want to say what's been in my heart:</p>
+              <p class="main-confession">I love our daughter more than life itself.</p>
+              <p class="main-confession">And I love you, her mother, in ways that surprise even me.</p>
+              <p>Not as an ex. Not as just a co-parent. But as the woman i want by my side.</p>
+            </div>
+          </div>
+          
+          <div class="future-hope">
+            <p>I don't know what the future holds. But I know what I hope for:</p>
+            <div class="hope-list">
+              <div class="hope-item">More moments watching you be an amazing mother</div>
+              <div class="hope-item">More conversations that start with "Remember when..." and end with laughter</div>
+              <div class="hope-item">More chances to show you the man I have become</div>
+              <div class="hope-item">More opportunities to build something beautiful together</div>
+            </div>
+          </div>
+          
+          <div class="valentine-gift">
+            <h3>🎁 Your Valentine's Gift</h3>
+            <p>This isn't a physical gift. It's a promise:</p>
+            <div class="gift-box">
+              <p><strong>I promise</strong> to always respect you as Lesedi's mother.</p>
+              <p><strong>I promise</strong> to never stop growing into someone worthy of your trust.</p>
+              <p><strong>I promise</strong> to keep this door open... in case you ever want to walk through it again.</p>
+            </div>
+            <p class="gift-note">My gift to you is a promise to always be there, for both of you guys.</p>
+          </div>
+          
+          <div class="valentine-closing">
+            <p>Thank you for being the woman you are. Thank you for our daughter. Thank you for this chance to speak my heart.</p>
+            <p class="signature">With all the love I have to give,<br>Elias</p>
+            <div class="closing-hearts">💖 💖 💖</div>
+          </div>
+        </div>
+        
+        <button id="close-valentine" class="valentine-close-btn">
+          Hold this close to your heart ❤️
+        </button>
+        
+        <div class="valentine-note">
+          <small>This message was written a heart that still believes in second chances.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container hidden" id="content">
+
+    <h1>Too easy!!! should have asked you what's my third name...</h1>
+
+    <!-- Progress Tracker -->
+    <div id="progress-tracker">
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
+      <div class="song-counter">Song 0/9</div>
+    </div>
+
+    <section class="message">
+      <p>I made this for you, quietly and intentionally.</p>
+
+      <p>
+        When we were together, our ambitions were not aligned and at the time,
+        that mattered more than we understood. We were at seeing life
+        from different angles I a bit immature to some degree, and that created distance.
+      </p>
+
+      <p>
+        As I have grown, I have also learned where I stayed comfortable for too long holding on to
+        familiar routines and people even when it was time to move forward, and focus on a much bigger picture.
+        The direction I am going, where and what I am building toward now reflects a clearer version of myself
+        and it looks a lot like the future I once imagined for us. This comes from growth
+         not pressure and not regret.
+      </p>
+
+      <p>
+        These songs are here to speak where words sometimes fall short.
+        Take your time with them. There is no expectation attached, only honesty.
+      </p>
+    </section>
+
+    <div class="divider">• • •</div>
+
+    <section class="song" data-song="1">
+      <h2>Mariah Carey — I Still Believe</h2>
+      <p class="caption">
+        This song reminds me that belief doesn't disappear just because timing was wrong.
+      </p>
+      <div class="song-tracker">
+        <div class="tracker-message">Starting your journey...</div>
+      </div>
+      <audio controls src="songs/I Still Believe - Mariah Carey.mp3"></audio>
+    </section>
+
+    <section class="song" data-song="2">
+      <h2>Monica — For You I Will</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/Monica-For you I will.mp3"></audio>
+    </section>
+
+    <section class="song" data-song="3">
+      <h2>Faith Evans — Soon As I Get Home</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/Faith Evans - Soon As I Get Home.mp3"></audio>
+    </section>
+
+    <div class="photo-container">
+      <img src="images/fbprofile.jpg" alt="sesame,lesedi and elias at sesames 21st birthday" class="photo">
+    </div>
+
+    <div class="divider text">
+      Some feelings do not fade they just wait for maturity to catch up.
+    </div>
+
+    <section class="song" data-song="4">
+      <h2>Brandy — Have You Ever</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/Brandy - Have You Ever.mp3"></audio>
+    </section>
+
+    <section class="song" data-song="5">
+      <h2>Boyz II Men — Water Runs Dry</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/Water Runs Dry - Boyz II Men.mp3"></audio>
+    </section>
+
+    <section class="song" data-song="6">
+      <h2>Alicia Keys — If I Ain't Got You</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/Alicia Keys - If I Ain't Got You.mp3"></audio>
+    </section>
+
+    <section class="song" data-song="7">
+      <h2>Mariah Carey — Through the Rain</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/Through The Rain - Mariah Carey.mp3"></audio>
+    </section>
+
+    <section class="song" data-song="8">
+      <h2>John Legend — Ordinary People</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/Ordinary People - John Legend.mp3"></audio>
+    </section>
+
+    <section class="song" data-song="9">
+      <h2>India.Arie — Strength, Courage & Wisdom</h2>
+      <div class="song-tracker">
+        <div class="tracker-message"></div>
+      </div>
+      <audio controls src="songs/India.Arie - Strength Courage & Wisdom lyrics.mp3"></audio>
+    </section>
+
+    <div id="final-message">
+      <div class="divider">💖</div>
+      <div class="personal-message">
+        <p>Every song here was chosen with intention. Every lyric speaks to something I couldn't always find words for.</p>
+        <p>This isn't about the past. It's about possibility. About growth. About what could be when two people have both grown into better versions of themselves.</p>
+        <p>No pressure, no expectations. Just honesty, respect, and the quiet hope that sometimes love deserves a second look.</p>
+      </div>
+    </div>
+
+    <!-- WhatsApp Response Feature -->
+    <div id="whatsapp-response">
+      <div class="divider">💌</div>
+      
+      <div class="response-container">
+        <h3>If you feel like saying something...</h3>
+        <p class="response-subtitle">
+          No pressure, no expectations. Just if something in your heart wants to speak back.
+        </p>
+        
+        <div class="message-box">
+          <textarea 
+            id="whatsapp-message" 
+            placeholder="Write whatever feels right... your thoughts, feelings, or just 'I listened.' This goes directly to me."
+            rows="5"
+          ></textarea>
+          
+          <div class="privacy-note">
+            <small>💝 This message will open in WhatsApp with me. Our connection matters, whatever you want to say.</small>
+          </div>
+          
+          <div class="response-actions">
+            <button id="send-whatsapp-btn" class="response-btn">
+              💬 Send Message via WhatsApp
+            </button>
+            <button id="save-draft-btn" class="response-btn secondary">
+              💾 Save for later
+            </button>
+          </div>
+        </div>
+        
+        <div id="whatsapp-sent" class="hidden">
+          <div class="sent-icon">✅</div>
+          <h4>Ready to Send!</h4>
+          <p>WhatsApp should open with your message. If not:</p>
+          <ol>
+            <li>Open WhatsApp on your phone</li>
+            <li>Look for Elias in your contacts</li>
+            <li>Your heartfelt message will be ready to send</li>
+          </ol>
+          <p class="confirmation-note">
+            Thank you for sharing your heart. No matter what you wrote, I appreciate you.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Wherever life takes us, this came from the heart with respect, clarity, and peace.</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Default romantic background
+    const defaultTheme = {
+      gradient: 'linear-gradient(135deg, #1a0b2e 0%, #0d0630 100%)',
+      gateGradient: 'linear-gradient(135deg, #1a0b2e 0%, #0d0630 100%)',
+      accent: 'rgba(120, 119, 198, 0.15)'
+    };
+
+    // Romantic color themes for each song
+    const songThemes = {
+      // Mariah Carey - I Still Believe (Soft Pink/Red - Love)
+      'I Still Believe - Mariah Carey': {
+        gradient: 'linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)',
+        gateGradient: 'linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)',
+        accent: 'rgba(106, 17, 203, 0.2)'
+      },
+      
+      // Monica - For You I Will (Deep Purple/Blue - Devotion)
+      'Monica-For you I will': {
+        gradient: 'linear-gradient(135deg, #8a2be2 0%, #4a00e0 100%)',
+        gateGradient: 'linear-gradient(135deg, #8a2be2 0%, #4a00e0 100%)',
+        accent: 'rgba(138, 43, 226, 0.2)'
+      },
+      
+      // Faith Evans - Soon As I Get Home (Warm Amber - Homecoming)
+      'Faith Evans - Soon As I Get Home': {
+        gradient: 'linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%)',
+        gateGradient: 'linear-gradient(135deg, #FF6B6B 0%, #FFA726 100%)',
+        accent: 'rgba(255, 107, 107, 0.2)'
+      },
+      
+      // Brandy - Have You Ever (Royal Blue - Longing)
+      'Brandy - Have You Ever': {
+        gradient: 'linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)',
+        gateGradient: 'linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%)',
+        accent: 'rgba(33, 147, 176, 0.2)'
+      },
+      
+      // Boyz II Men - Water Runs Dry (Deep Teal - Reflection)
+      'Water Runs Dry - Boyz II Men': {
+        gradient: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
+        gateGradient: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
+        accent: 'rgba(44, 83, 100, 0.2)'
+      },
+      
+      // Alicia Keys - If I Ain't Got You (Gold/Rose - True Love)
+      'Alicia Keys - If I Ain\'t Got You': {
+        gradient: 'linear-gradient(135deg, #DA4453 0%, #89216B 100%)',
+        gateGradient: 'linear-gradient(135deg, #DA4453 0%, #89216B 100%)',
+        accent: 'rgba(218, 68, 83, 0.2)'
+      },
+      
+      // Mariah Carey - Through the Rain (Silver/Blue - Resilience)
+      'Through The Rain - Mariah Carey': {
+        gradient: 'linear-gradient(135deg, #4A569D 0%, #DC2424 100%)',
+        gateGradient: 'linear-gradient(135deg, #4A569D 0%, #DC2424 100%)',
+        accent: 'rgba(74, 86, 157, 0.2)'
+      },
+      
+      // John Legend - Ordinary People (Warm Brown/Gold - Real Love)
+      'Ordinary People - John Legend': {
+        gradient: 'linear-gradient(135deg, #603813 0%, #b29f94 100%)',
+        gateGradient: 'linear-gradient(135deg, #603813 0%, #b29f94 100%)',
+        accent: 'rgba(96, 56, 19, 0.2)'
+      },
+      
+      // India.Arie - Strength, Courage & Wisdom (Earth Tones - Growth)
+      'India.Arie - Strength Courage & Wisdom lyrics': {
+        gradient: 'linear-gradient(135deg, #0B486B 0%, #F56217 100%)',
+        gateGradient: 'linear-gradient(135deg, #0B486B 0%, #F56217 100%)',
+        accent: 'rgba(11, 72, 107, 0.2)'
+      }
+    };
+
+    // Global variables
+    let currentlyPlaying = null;
+    let currentlyPlayingContainer = null;
+    let isUnlocked = false;
+    let songsPlayed = new Set();
+    const totalSongs = 9;
+    const yourWhatsAppNumber = "+26776640426";
+
+    // Progress tracking messages for each song
+    const songMessages = {
+      1: "Starting your journey... first song of many meanings",
+      2: "Second song... the devotion in these lyrics",
+      3: "Third song... halfway to our photo memory",
+      4: "Fourth song... after our special moment",
+      5: "Fifth song... reflections on what was",
+      6: "Sixth song... the essence of true connection",
+      7: "Seventh song... resilience through challenges",
+      8: "Eighth song... real love in ordinary moments",
+      9: "Final song... strength, courage, and wisdom"
+    };
+
+    // Check if it's Valentine's Day
+    function isValentinesDay() {
+      const today = new Date();
+      return (today.getMonth() === 1 && today.getDate() === 14); // Feb 14
+    }
+
+    // Updated unlock function with pre-Valentine's tease
+    function unlock() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      const secret = "lesedi";
+
+      if (input === secret) {
+        // Hide the gate immediately
+        document.getElementById("gate").style.display = "none";
+        isUnlocked = true;
+        
+        // Check Valentine's status
+        const valentinesDay = isValentinesDay();
+        
+        if (valentinesDay) {
+          // It's Valentine's Day - show the full surprise
+          showValentineSurprise();
+        } else {
+          // Not Valentine's Day - show the tease
+          showPreValentineTease();
+        }
+        
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+
+    // Pre-Valentine's Tease
+    function showPreValentineTease() {
+      const tease = document.getElementById('pre-valentine-tease');
+      tease.classList.remove('hidden');
+      
+      // Add event listeners
+      document.getElementById('wait-for-valentine').addEventListener('click', function() {
+        tease.classList.add('hidden');
+        // Show closing message
+        showTeaseClosingMessage();
+      });
+      
+      document.getElementById('see-anyway').addEventListener('click', function() {
+        tease.classList.add('hidden');
+        // Show the main content but with a hint
+        document.getElementById('content').classList.remove('hidden');
+        initializeFeatures();
+        
+        // Add Valentine's hint to the main page
+        addValentineHint();
+      });
+    }
+
+    function showTeaseClosingMessage() {
+      const message = document.createElement('div');
+      message.className = 'tease-closing-overlay';
+      message.innerHTML = `
+        <div class="tease-final-message">
+          <div class="final-heart">💝</div>
+          <h3>I'll be waiting for you on Valentine's Day</h3>
+          <p>Mark your calendar for February 14th.</p>
+          <p>There's something special I want to share with you.</p>
+          <p class="final-note"><em>Some things are worth waiting for.</em></p>
+          <button id="close-tease" class="final-btn">I'll be back ❤️</button>
+        </div>
+      `;
+      
+      document.body.appendChild(message);
+      
+      document.getElementById('close-tease').addEventListener('click', function() {
+        message.remove();
+        // Show the main content
+        document.getElementById('content').classList.remove('hidden');
+        initializeFeatures();
+        
+        // Add Valentine's hint
+        addValentineHint();
+      });
+    }
+
+    function addValentineHint() {
+      const hint = document.createElement('div');
+      hint.className = 'valentine-hint-box';
+      hint.innerHTML = `
+        <div class="hint-content">
+          <span class="hint-icon">💝</span>
+          <div class="hint-text">
+            <strong>Come back on Valentine's Day</strong><br>
+            <small>They is a special message and gift waiting for you on February 14th</small>
+          </div>
+        </div>
+      `;
+      
+      // Insert after the progress tracker
+      const progressTracker = document.getElementById('progress-tracker');
+      if (progressTracker) {
+        progressTracker.parentNode.insertBefore(hint, progressTracker.nextSibling);
+      }
+    }
+
+    // Valentine's Surprise
+    function showValentineSurprise() {
+      const surprise = document.getElementById('valentine-surprise');
+      surprise.classList.remove('hidden');
+      
+      // Add floating hearts
+      createValentineHearts();
+      
+      // Add click handler to close
+      document.getElementById('close-valentine').addEventListener('click', function() {
+        surprise.classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+        initializeFeatures();
+        
+        // Create final heart explosion
+        createHeartExplosion();
+        
+        // Mark Valentine's message as viewed
+        localStorage.setItem('valentine_viewed', 'true');
+      });
+    }
+
+    function createValentineHearts() {
+      const heartsContainer = document.createElement('div');
+      heartsContainer.className = 'floating-valentine-hearts';
+      
+      const heartTypes = ['❤️', '💖', '💝', '💗', '💓', '💞', '💕', '🧡', '🤎'];
+      
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        const heartType = heartTypes[Math.floor(Math.random() * heartTypes.length)];
+        
+        heart.innerHTML = heartType;
+        heart.style.cssText = `
+          position: fixed;
+          font-size: ${Math.random() * 35 + 25}px;
+          left: ${Math.random() * 100}vw;
+          top: ${Math.random() * 100}vh;
+          opacity: ${Math.random() * 0.7 + 0.3};
+          animation: floatValentineHeart ${Math.random() * 25 + 15}s linear infinite;
+          animation-delay: ${Math.random() * 5}s;
+          z-index: 10000;
+          pointer-events: none;
+          filter: drop-shadow(0 0 10px rgba(255, 64, 129, 0.6));
+        `;
+        
+        heartsContainer.appendChild(heart);
+      }
+      
+      document.body.appendChild(heartsContainer);
+      
+      // Clean up after surprise closes
+      document.getElementById('close-valentine').addEventListener('click', function() {
+        setTimeout(() => heartsContainer.remove(), 3000);
+      });
+    }
+
+    function createHeartExplosion() {
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.innerHTML = '💖';
+          heart.style.cssText = `
+            position: fixed;
+            font-size: ${Math.random() * 30 + 20}px;
+            left: ${Math.random() * 100}vw;
+            top: ${Math.random() * 100}vh;
+            opacity: 0;
+            animation: heartExplode 2.5s ease-out forwards;
+            z-index: 10000;
+            pointer-events: none;
+          `;
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 2500);
+        }, i * 100);
+      }
+    }
+
+    // Progress Tracker - Show message in song container
+    function showSongMessage(songNumber) {
+      // Hide all tracker messages first
+      document.querySelectorAll('.tracker-message').forEach(msg => {
+        msg.classList.remove('active');
+      });
+      
+      // Get the tracker message for this song
+      const songElement = document.querySelector(`.song[data-song="${songNumber}"]`);
+      if (songElement) {
+        const trackerMsg = songElement.querySelector('.tracker-message');
+        
+        // Get message
+        let message = songMessages[songNumber];
+        
+        // Update the message
+        trackerMsg.textContent = message;
+        trackerMsg.classList.add('active');
+        
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          trackerMsg.classList.remove('active');
+        }, 5000);
+      }
+    }
+
+    function updateProgress(songNumber) {
+      songsPlayed.add(songNumber);
+      const progress = (songsPlayed.size / totalSongs) * 100;
+      
+      // Update progress bar
+      const progressFill = document.querySelector('.progress-fill');
+      if (progressFill) {
+        progressFill.style.width = `${progress}%`;
+      }
+      
+      // Update song counter
+      const songCounter = document.querySelector('.song-counter');
+      if (songCounter) {
+        songCounter.textContent = `Song ${songsPlayed.size}/${totalSongs}`;
+      }
+      
+      // Show message in the song container
+      showSongMessage(songNumber);
+      
+      // Check if all songs played
+      if (songsPlayed.size === totalSongs) {
+        showCompletionMessage();
+      }
+    }
+
+    function showCompletionMessage() {
+      // Show completion in the last song's tracker
+      const lastSong = document.querySelector('.song[data-song="9"]');
+      if (lastSong) {
+        const trackerMsg = lastSong.querySelector('.tracker-message');
+        
+        trackerMsg.textContent = isValentinesDay() ? 
+          "💖 You've completed the Valentine's playlist. My heart is full." : 
+          "🎉 You've listened to all the songs. Thank you for your time.";
+        trackerMsg.classList.add('active', 'completion');
+        
+        // Don't auto-hide completion message
+        setTimeout(() => {
+          trackerMsg.classList.remove('active');
+        }, 10000);
+      }
+    }
+
+    // WhatsApp Response Feature
+    function setupWhatsAppResponse() {
+      const sendBtn = document.getElementById('send-whatsapp-btn');
+      const saveBtn = document.getElementById('save-draft-btn');
+      const messageInput = document.getElementById('whatsapp-message');
+      const sentConfirmation = document.getElementById('whatsapp-sent');
+      
+      if (sendBtn) {
+        sendBtn.addEventListener('click', sendWhatsAppMessage);
+      }
+      
+      if (saveBtn) {
+        saveBtn.addEventListener('click', function() {
+          const message = messageInput.value.trim();
+          if (message) {
+            localStorage.setItem('message_draft', message);
+            alert("Message saved as draft. You can come back to it anytime.");
+          } else {
+            alert("Please write something before saving.");
+          }
+        });
+      }
+      
+      // Load draft if exists
+      const savedDraft = localStorage.getItem('message_draft');
+      if (savedDraft && messageInput) {
+        messageInput.value = savedDraft;
+      }
+    }
+
+    function sendWhatsAppMessage() {
+      const messageInput = document.getElementById('whatsapp-message');
+      const message = messageInput.value.trim();
+      const isValentines = isValentinesDay();
+      
+      if (!message) {
+        alert("Please write something from your heart... even if it's just 'I listened.'");
+        return;
+      }
+      
+      // Format the message
+      let whatsappMessage = message;
+      
+      // Add Valentine's Day context if applicable
+      if (isValentines) {
+        whatsappMessage = `💌 Valentine's Day Response\n\n${message}\n\n(Sent from your special playlist)`;
+      } else {
+        whatsappMessage = `💬 Response to your playlist\n\n${message}`;
+      }
+      
+      // Encode for URL
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      
+      // Create WhatsApp URL
+      const whatsappURL = `https://wa.me/${+26776640426}?text=${encodedMessage}`;
+      
+      // Show sending animation
+      const sendBtn = document.getElementById('send-whatsapp-btn');
+      const originalText = sendBtn.textContent;
+      sendBtn.textContent = 'Opening WhatsApp...';
+      sendBtn.disabled = true;
+      
+      // Open WhatsApp
+      window.open(whatsappURL, '_blank');
+      
+      // Show confirmation
+      setTimeout(() => {
+        const sentConfirmation = document.getElementById('whatsapp-sent');
+        if (sentConfirmation) {
+          sentConfirmation.classList.remove('hidden');
+        }
+        
+        // Reset button
+        sendBtn.textContent = originalText;
+        sendBtn.disabled = false;
+        
+        // Clear message
+        messageInput.value = '';
+        localStorage.removeItem('message_draft');
+        
+        // Scroll to confirmation
+        sentConfirmation.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 1000);
+    }
+
+    // Fade-in photo on scroll
+    function fadeInOnScroll() {
+      const photoContainer = document.querySelector('.photo-container');
+      if (!photoContainer) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            photoContainer.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      observer.observe(photoContainer);
+    }
+
+    // Change background based on song
+    function changeBackground(songName) {
+      const theme = songThemes[songName] || defaultTheme;
+      
+      // Apply gradient to body
+      document.body.style.background = theme.gradient;
+      
+      // Apply same to gate
+      const gate = document.getElementById('gate');
+      if (gate) {
+        gate.style.background = theme.gradient;
+      }
+    }
+
+    function resetBackground() {
+      document.body.style.background = defaultTheme.gradient;
+      const gate = document.getElementById('gate');
+      if (gate) {
+        gate.style.background = defaultTheme.gradient;
+      }
+    }
+
+    // Setup audio players with background changes
+    function setupAudioPlayers() {
+      const audioPlayers = document.querySelectorAll('audio');
+      
+      audioPlayers.forEach((audio, index) => {
+        // Ensure parent has data-song attribute
+        const songElement = audio.closest('.song');
+        if (songElement && !songElement.hasAttribute('data-song')) {
+          songElement.setAttribute('data-song', index + 1);
+        }
+        
+        audio.addEventListener('play', function() {
+          // Get song filename
+          const songSrc = this.getAttribute('src');
+          const songName = songSrc.split('/').pop().replace('.mp3', '');
+          
+          // Get song number from parent
+          const songElement = this.closest('.song');
+          const songNumber = songElement ? parseInt(songElement.getAttribute('data-song')) : null;
+          
+          // Update progress
+          if (songNumber) {
+            updateProgress(songNumber);
+          }
+          
+          // Pause other songs
+          if (currentlyPlaying && currentlyPlaying !== this) {
+            currentlyPlaying.pause();
+            currentlyPlaying.currentTime = 0;
+          }
+          
+          // Update currently playing
+          currentlyPlaying = this;
+          
+          // Change background
+          changeBackground(songName);
+        });
+        
+        audio.addEventListener('pause', function() {
+          if (currentlyPlaying === this) {
+            currentlyPlaying = null;
+            if (!document.querySelector('audio:playing')) {
+              resetBackground();
+            }
+          }
+        });
+        
+        audio.addEventListener('ended', function() {
+          if (currentlyPlaying === this) {
+            currentlyPlaying = null;
+            resetBackground();
+          }
+        });
+      });
+    }
+
+    // Initialize all features
+    function initializeFeatures() {
+      // Setup audio players
+      setupAudioPlayers();
+      
+      // Setup photo fade-in
+      setTimeout(fadeInOnScroll, 100);
+      
+      // Setup WhatsApp response
+      setupWhatsAppResponse();
+      
+      // Add playing indicator to songs
+      document.querySelectorAll('.song').forEach(song => {
+        const indicator = document.createElement('div');
+        indicator.className = 'playing-indicator';
+        song.appendChild(indicator);
+      });
+    }
+
+    // Initialize if already unlocked (for testing)
+    document.addEventListener('DOMContentLoaded', function() {
+      if (!document.getElementById('content').classList.contains('hidden')) {
+        isUnlocked = true;
+        initializeFeatures();
+      }
+    });
+
+    // Add global play event listener for pausing other songs
+    document.addEventListener('play', function(e) {
+      if (e.target.tagName !== 'AUDIO' || !isUnlocked) return;
+      
+      // Pause any other playing audio
+      if (currentlyPlaying && currentlyPlaying !== e.target) {
+        currentlyPlaying.pause();
+        currentlyPlaying.currentTime = 0;
+      }
+      
+      currentlyPlaying = e.target;
+    }, true);
+
+    // Reset when audio ends
+    document.addEventListener('ended', function(e) {
+      if (e.target.tagName === 'AUDIO' && currentlyPlaying === e.target) {
+        currentlyPlaying = null;
+      }
+    }, true);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const valentineSurprise = document.getElementById('valentine-surprise');
+        if (valentineSurprise) {
+            valentineSurprise.classList.add('hidden'); // Ensure it's hidden by default
+            const today = new Date();
+            const isValentinesDay = today.getMonth() === 1 && today.getDate() === 14; // February 14
+
+            if (isValentinesDay) {
+                valentineSurprise.classList.remove('hidden');
+            }
+        }
+    });
+  </script>
+
+</body>
+</html>
