@@ -21,7 +21,7 @@
         autocomplete="off"
       />
 
-      <button onclick="unlock()">Enter</button>
+      <button onclick="unlock()" aria-label="Enter the name to unlock">Enter</button>
       <div id="error">Hint!! its a setswana name.</div>
     </div>
   </div>
@@ -235,7 +235,7 @@
     </section>
 
     <div class="photo-container">
-      <img src="images/fbprofile.jpg" alt="sesame,lesedi and elias at sesames 21st birthday" class="photo">
+      <img src="images/fbprofile.jpg" alt="sesame,lesedi and elias at sesames 21st birthday" class="photo" loading="lazy">
     </div>
 
     <div class="divider text">
@@ -781,23 +781,58 @@
       }, 1000);
     }
 
-    // Fade-in photo on scroll
+    // Debounce function for better performance
+    function debounce(func, wait) {
+      let timeout;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+      };
+    }
+
+    // Throttle function for better performance
+    function throttle(func, limit) {
+      let inThrottle;
+      return function (...args) {
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => (inThrottle = false), limit);
+        }
+      };
+    }
+
+    // Optimize fade-in photo on scroll with debounce
     function fadeInOnScroll() {
       const photoContainer = document.querySelector('.photo-container');
       if (!photoContainer) return;
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            photoContainer.classList.add('visible');
-          }
-        });
-      }, {
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
-      });
+      const observer = new IntersectionObserver(
+        debounce((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              photoContainer.classList.add('visible');
+            }
+          });
+        }, 100),
+        {
+          threshold: 0.3,
+          rootMargin: '0px 0px -50px 0px',
+        }
+      );
 
       observer.observe(photoContainer);
+    }
+
+    // Reduced motion preference
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
+
+    if (prefersReducedMotion) {
+      document.body.classList.add('reduce-motion');
     }
 
     // Change background based on song
@@ -942,5 +977,4 @@
 </body>
 
 </html>
-
 
