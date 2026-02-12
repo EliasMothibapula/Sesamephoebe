@@ -1323,123 +1323,66 @@
   }
   
   @media (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  
     .container {
-      padding: 32px 12px;
+      padding: 20px;
     }
-    
-    h1 {
-      font-size: 1.6rem;
-      margin-bottom: 24px;
+  
+    .tease-card,
+    .valentine-card {
+      padding: 20px;
+      margin: 10px;
     }
-    
-    .message {
-      padding: 1.25rem;
-      margin-bottom: 40px;
+  
+    .tease-title,
+    .valentine-title {
+      font-size: 1.2rem;
     }
-    
-    h2 {
+  
+    .tease-btn,
+    .response-btn {
+      padding: 12px 20px;
       font-size: 1rem;
     }
-    
-    .song {
-      padding: 14px;
-      margin-bottom: 32px;
-    }
-    
-    .caption {
-      font-size: 0.95rem;
-    }
-    
+  
     .photo-container {
-      margin: 40px auto;
-      max-width: 260px;
+      max-width: 200px;
     }
-    
+  
     .photo {
       max-width: 180px;
     }
-    
+  
     .divider {
-      margin: 40px 0;
-      font-size: 1.25rem;
-      letter-spacing: 6px;
-    }
-    
-    .divider.text {
-      padding: 0.75rem;
-      margin: 32px 0;
+      margin: 30px 0;
       font-size: 1rem;
     }
-    
-    #final-message {
-      margin-top: 50px;
+  
+    .message {
+      padding: 1rem;
+      margin-bottom: 30px;
     }
-    
-    #whatsapp-response {
-      margin-top: 50px;
+  
+    .song {
+      padding: 10px;
+      margin-bottom: 20px;
     }
-    
-    .message-box {
-      padding: 20px;
-    }
-    
-    #whatsapp-message {
+  
+    .moment {
+      flex-direction: column;
       padding: 15px;
-      font-size: 1rem;
     }
-    
-    .response-btn {
-      padding: 12px 25px;
-      font-size: 1rem;
+  
+    .moment-icon {
+      margin-bottom: 10px;
     }
-    
-    #whatsapp-sent {
-      padding: 20px;
-    }
-    
-    .tracker-message {
-      font-size: 0.85rem;
-    }
-    
-    footer {
-      margin-top: 60px;
-      padding-top: 1.5rem;
-    }
-    
-    .gate-box {
-      padding: 24px 12px;
-    }
-    
-    .gate-box h2 {
-      font-size: 1.5rem;
-    }
-    
-    .gate-box input {
-      padding: 12px;
-    }
-    
-    .gate-box button {
-      padding: 10px 24px;
-    }
-    
-    .tease-card,
-    .valentine-card {
-      padding: 25px 20px;
-    }
-    
-    .tease-title,
-    .valentine-title {
-      font-size: 1.4rem;
-    }
-    
-    .valentine-heart,
-    .tease-heart,
-    .final-heart {
-      font-size: 3rem;
-    }
-    
-    .main-confession {
-      font-size: 1.2rem;
+  
+    .valentine-close-btn {
+      width: 100%;
+      padding: 15px;
     }
   }
   
@@ -1492,5 +1435,12 @@
     
     .valentine-hint-box {
       animation: none;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
     }
   }
